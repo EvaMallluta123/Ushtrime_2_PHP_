@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    //Ushtrimi 1
+<h2 style="color: brown;">//Ushtrimi 1</h2>
+    <!-- 1. Jepen notat e studenteve ne lenden PAW
+$notat = "10,6,9,8,8,9,5,4,4,10,10,6,7,8,9,9,5,6,5,10,7,8,8,9,7";
+Shkruani kodin ne PHP qe afishon:
+ Noten mesatare
+ Sa nota jane nen mesatare dhe sa nota jane mbi mesatare
+ Noten maksimale dhe noten minimale
+ Frekuencen e seciles note te afishuar ne nje tabele -->
 <?php
 function getMax($array)
 {
@@ -95,6 +102,7 @@ echo(frequency($array, 7));
 // echo("\n");
 // echo(min($array));
 ?>
+<h2>Fekuencat e notave janë: </h2>
  <table border="1">
             <tr>
             <?php 
@@ -104,6 +112,50 @@ echo(frequency($array, 7));
             <?php endforeach; ?>
             </tr>
  </table>
+
+ <h2 style="color: brown;">//Ushtrimi 2</h2>
+ <!-- 2. Shkruani kodin PHP qe krijon nje vektor te shoqeruar qe permban 10 shtete ne Europe dhe
+kryeqytetet e tyre. Emri i shteteve sherben si Key, ndersa kryeqytetet e tyre si Values.
+ Afishoni elementin e pare te vektorit te shoqeruar
+ Afishoni shtetet dhe kryeqytetet perkatese ne 2 format e meposhtme:
+
+o Ne nje tabele te renditura nga emri i shtetit
+Shteti Kryeqyteti
+Shqiperia Tirana
+
+o Ne formen
+
+“ Shteti: SHQIPERIA; Kryeqyteti: TIRANA” -->
+<?php
+$languages = array ("Shqiperia" => "Tirana","Gjermani" => "Berlin","Italia" => "Roma", "Vietnami" => "Hanoi", "Kuba" => "Havana" , "Finlande" => "Helsinki" , "Pakistan" => "Islamabad" ,"Bolivia" => "La Paz" , "Anglia" => "Londër", "Greqia" => "Athina");
+echo "<p>Elementi i parë i vektorit të shoqëruar është: </p>";
+echo current($languages) . "<br>";
+
+?>
+<table border="1">
+<tr>
+    <th>Shteti</th>
+    <th>Kryeqyteti
+    </th>
+  </tr>
+           
+            <?php 
+            
+            foreach ($languages as$x => $x_value): 
+            ?>
+             <tr>
+            <td><?php echo $x?></td>
+            <td><?php echo $x_value?></td>
+            </tr>
+            <?php endforeach; ?>
+ </table>
+ <?php
+
+foreach($languages as $x => $x_value) {
+  echo "Shteti: " .strtoupper( $x ) .  ",   Kryeqyteti: " .strtoupper($x_value);
+  echo "</br>";
+}
+?>
 </body>
 </html>
 
