@@ -156,6 +156,36 @@ foreach($languages as $x => $x_value) {
   echo "</br>";
 }
 ?>
+ <h2 style="color: brown;">//Ushtrimi 3</h2>
+ <!-- 3. Shkruani kodin ne PHP qe krijon 2 vektor te shoqeruar qe permbajne notat qe kane marre
+studentet 1 dhe 2 gjate semestrit te pare ne lendet specifike.
+- Afishoni nqs studentet jane kalues ne te gjitha lendet ose jo.
+- Afishoni cili student ka noten mesatare me te larte
+- Afishoni lenden/lendet ku studentet kane marre noten maksimale -->
+<?php
+$studenti1 = array ("Informatik" => "7","Matemaik" => "8","Ekonomi" => "9", "Databazë" => "10", "Algoritmikë" => "6");
+$studenti2 = array ("Informatik" => "6","Matemaik" => "5","Ekonomi" => "7", "Databazë" => "9", "Algoritmikë" => "4");
+function filterArray($value){
+    return ($value> 4);
+}
+$total=0;
+$filteredArray = array_filter($studenti2, 'filterArray');
+
+foreach($filteredArray as $k => $v){
+$total+=1;
+ 
+}
+if($total==5){
+
+    echo "Studenti është kalues";
+}
+else {
+    echo "Studenti nuk është kalues";
+}
+
+ 
+
+?>
 </body>
 </html>
 
