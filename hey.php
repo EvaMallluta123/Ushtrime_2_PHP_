@@ -182,8 +182,22 @@ if($total==5){
 else {
     echo "Studenti nuk është kalues";
 }
+$avergst1=0;
+$avergst2=0;
 
- 
+    $avergst1=average($studenti1);
+
+
+$avergst2=average($studenti2);
+
+    if($avergst1>$avergst2){
+        echo "<br>";
+        echo "Studenti1 ka mesataren më të mirë";
+    }
+    else {
+        echo "<br>";
+        echo "Studenti2 ka mesataren më të mirë";
+    }
 
 ?>
 </body>
