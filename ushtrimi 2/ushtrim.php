@@ -9,94 +9,85 @@
 </head>
 
 <body>
+<style> table {border-collapse: collapse; padding:5px; } table, th, td { border:1px solid black; padding:10px;} </style> 
     <?php
-    $Shitjet_Neptun = array(
-        "viti_1" => array("muaji"=>"Janar","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Shkurt","emri" => "Televizor", "sasia" => "340"),
-                         array("muaji"=>"Mars","emri" => "Frigrifer", "sasia" => "870"),
-                         array("muaji"=>"Prill","emri" => "Telefon", "sasia" => "430"),
-                         array("muaji"=>"Maj","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Qeshor","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Korrik","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Gusht","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Shtator","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Tetor","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Nëntor","emri" => "Aspirator", "sasia" => "200"),
-                         array("muaji"=>"Dhjetor","emri" => "Aspirator", "sasia" => "200"),
-        
-//     "viti_2" =>array("muaji"=>"Janar","emri" => "Aspirator", "sasia" => "200"),
-//      array("muaji"=>"Shkurt","emri" => "Televizor", "sasia" => "340"),
-//      array("muaji"=>"Mars","emri" => "Frigrifer", "sasia" => "870"),
-//     array("muaji"=>"Prill","emri" => "Telefon", "sasia" => "430"),
-//     "Maj" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Qeshor" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Korrik" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Gusht" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Shtator" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Tetor" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Nëntor" => array("emri" => "Aspirator", "sasia" => "200"),
-//     "Dhjetor" => array("emri" => "Aspirator", "sasia" => "200")
-
-// ),
-// "viti_3" => array("Janar"=>
-//  array("emri" => "Aspirator", "sasia" => "200"),
-// "Shkurt" => 
-// array("emri" => "Televizor", "sasia" => "340"),
-// "Mars" => 
-// array("emri" => "Frigrifer", "sasia" => "870"),
-// "Prill" => 
-// array("emri" => "Telefon", "sasia" => "430"),
-// "Maj" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Qeshor" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Korrik" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Gusht" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Shtator" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Tetor" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Nëntor" => 
-// array("emri" => "Aspirator", "sasia" => "200"),
-// "Dhjetor" => 
-// array("emri" => "telefon", "sasia" => "200")
-
-// ),
- );
-
-//  foreach ($Shitjet_Neptun["viti_1"] as $task) {
-// 	foreach ($task as $task_detail) {
-// 		print_r($task) . '<br>';
-// 		echo $task_detail. '<br>';
-
-// 	}
-// }
+$Shitjet_Neptun = array(
+    "viti_1" => array(
+        'emri' => 'Aspirator',
+        'sasia' => '567',
+    ),
+    "viti_2" => array(
+        'emri' => 'Televizor',
+        'sasia' => '187'
+    ),
+    "viti_3" => array(
+        'emri' => 'Laptopi',
+        'sasia' => '177'
+    ),
+);
     ?>
     
- 
-<h3>Zgjidh muajin e dëshiruar</h3>
- <?php 
+    <?php
+ $max =number_format( $Shitjet_Neptun["viti_1"]["sasia"]) ;'<br/>';
+foreach ($Shitjet_Neptun as $task=>$task_detail) {
+    $sasia= number_format($task_detail["sasia"]);
+    if ($max <= $sasia){
+    $max = $sasia;
+  $emri= $task_detail["emri"];
+ } else{
+    $min = $sasia;
+  $emri2= $task_detail["emri"];
+}
+}
+echo "Maksimumi i shitjeve për të gjitha vitet është"; echo $emri; echo " , me "; echo $max; echo " sasi.", "<br>";
+echo "Minimumi i shitjeve për të gjitha vitet është"; echo $emri2; echo " , me "; echo $min; echo " sasi.", "<br>";
+
+
+
+
+ $total = 0;
  foreach ($Shitjet_Neptun as $task=>$task_detail) {
-    echo '<form method="POST">';
-    echo '<br/><input type="checkbox" id="f_muaji" name="colour[]" value=';echo $task_detail["muaji"] ;'>';
-    echo'<label for="f_muaji" name="f_muaji">'; echo  $task_detail["muaji"] ;'</label><br>';
-	// 	// echo $task_detail["muaji"]. '<br>';
-      
-	} 
-    echo '<br> <input type="submit" value="Kërko" name="submit">';
-    echo'</form>';
+$total=$total+$task_detail["sasia"];
+ };
+ $mesatarja=$total/count($Shitjet_Neptun);	
+ "<br>"; echo "Mesatarja është: " ;echo $mesatarja , "<br>";
+echo "Totali është: " ;echo $total ;
 
+     ?>
+    
+ 
+<h3>Zgjidh vitin e dëshiruar</h3> -->
+<form method="POST">
+    <br/><input type="checkbox" id="viti1" name="viti[]" value="viti_1"> VITI 1<br>
+    <br/><input type="checkbox" id="viti2" name="viti[]" value="viti_2"> VITI 2<br>
+    <br/><input type="checkbox" id="viti3" name="viti[]" value="viti_3"> VITI 3<br>
 
+    <br> <input type="submit" value="Kërko" name="submit">
+    </form>
+  <?php 
     if(isset($_POST['submit'])){
+        if(!empty($_POST['viti'])) {
+    
+            foreach($_POST['viti'] as $viti){
+           
+                echo " <br/>Viti i zgjedhur : ". $viti.'<br/>';
+               foreach($Shitjet_Neptun as $key=>$value){
+                    if($viti == strval($key) ){
+                        foreach ( $Shitjet_Neptun[$key] as $cdovit)
+                        echo "<table>
+                                    <tr>
+                                      <td> $cdovit </td>
+                                    </tr>
+                                  </table>";
+                       
+               }
 
-        if(!empty($_POST['colour'])) {
-    
-            foreach($_POST['colour'] as $value){
-                echo " <br/>Muajt e zgjedhur : ". $value.'<br/>';
+        }
             }
-    
+            
+        }
+        else  {
+            echo "Duhet të zgjidhni të paktën 1 vit.";
         }
     
     }
@@ -106,5 +97,4 @@
 
 
 </body>
-
 </html>
